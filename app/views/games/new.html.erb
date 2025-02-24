@@ -1,0 +1,12 @@
+<h1>Hello Rails!</h1>
+<p>Lets play a game of longest word</p>
+<p>Here are your letters:</p>
+<p><strong>
+<% @letters.each do |letter| %>
+  <%= letter %>,
+  <% end %></strong></p>
+<form action="/score" data-turbo="false">
+  <input type="text" name="answer">
+  <input type="submit" value="your word?">
+  <input id="token" name="token" type="hidden" value="<% @letters.each do |letter| %><%=letter%><% end %>">
+</form>
